@@ -1,10 +1,15 @@
+sudo adduser user
 sudo adduser user sudo
 sudo gpasswd -a user sudo
-chown user:user init_server.sh
-mv init_server.sh /home/user/init_server.sh
+mkdir /home/user/.ssh
+chown user:user /home/user/.ssh
+cp ~/.ssh/authorized_keys /home/user/.ssh/authorized_keys
+chown user:user /home/user/.ssh/authorized_keys
 su user
-sudo apt-get install git
+git clone https://github.com/JamesDaniel/server-scripts.git ~/server-scripts
 git config --global user.name "JamesDaniel"
 git config --global user.email "james.d.mcgarr@students.ittralee.ie"
-git clone https://github.com/JamesDaniel/server-scripts.git /home/user/server-scripts
-/home/user/server-scripts/start_firewall.sh
+
+# Suggested next scripts to run.
+#/home/user/server-scripts/install_docker.sh
+#/home/user/server-scripts/start_firewall.sh
