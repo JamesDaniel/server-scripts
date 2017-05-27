@@ -29,7 +29,7 @@ linenum=$(sudo awk '/filter/{ print NR; exit }' /etc/ufw/before.rules)
 sudo sed '12i\
 *nat' /etc/ufw/before.rules > /etc/ufw/before.rules
 #linenum=$(($linenum+1))
-tofile="sexy as hell *filter"
+tofile="see this change *filter"
 #read -r -d '' tofile << End
 #
 #*nat
