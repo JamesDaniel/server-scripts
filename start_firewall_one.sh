@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Before running this script run install_docker.sh first.
 # Only run this script once with sudo. Unexpected problems might occur of run
 # more than once.
