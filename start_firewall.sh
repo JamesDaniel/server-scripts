@@ -1,3 +1,7 @@
+# Before running this script run install_docker.sh first.
+# Only run this script once. Unexpected problems might occur of run
+# more than once.
+
 sudo ufw enable
 sudo ufw allow ssh
 sudo ufw allow 80
@@ -31,8 +35,9 @@ sudo chown user:user /etc/ufw/before.rules
 python /home/user/server-scripts/utils/replace_word_in_file.py /etc/ufw/before.rules $oldTxt "$(printf "$newTxt")"
 sudo chown root:root /etc/ufw/before.rules
 
-#Manual step. Don't know why this line is getting a permission denied.
+#This is from a comment from the same source. Additional step for ubuntu 16.
 sudo touch /etc/docker/daemon.json
+sudo chown user:user /etc/docker/daemon.json
 cat << End > /etc/docker/daemon.json
 
 {
@@ -40,12 +45,10 @@ cat << End > /etc/docker/daemon.json
 }
 
 End
-#sudo echo ' { "iptables": false } ' > /etc/docker/daemon.json
+sudo chown root:root /etc/docker/daemon.json
 
-##sudo service docker stop
-##sudo service docker start
-##sudo reboot now
-
-##sudo ufw enable
-##sudo ufw allow 80
+#Final steps
+sudo service docker stop
+sudo service docker start
+sudo reboot now
 
