@@ -32,7 +32,14 @@ python /home/user/server-scripts/utils/replace_word_in_file.py /etc/ufw/before.r
 sudo chown root:root /etc/ufw/before.rules
 
 #Manual step. Don't know why this line is getting a permission denied.
-#sudo touch /etc/docker/daemon.json
+sudo touch /etc/docker/daemon.json
+cat << End > /etc/docker/daemon.json
+
+{
+    "iptables": false
+}
+
+End
 #sudo echo ' { "iptables": false } ' > /etc/docker/daemon.json
 
 ##sudo service docker stop
