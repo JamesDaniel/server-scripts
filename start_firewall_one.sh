@@ -32,7 +32,7 @@ End
 oldTxt="*filter"
 
 sudo chown user:user /etc/ufw/before.rules
-python /home/user/server-scripts/utils/replace_word_in_file.py /etc/ufw/before.rules $oldTxt "$(printf "$newTxt")"
+sudo python /home/user/server-scripts/utils/replace_word_in_file.py /etc/ufw/before.rules $oldTxt "$(printf "$newTxt")"
 sudo chown root:root /etc/ufw/before.rules
 
 #This is from a comment from the same source. Additional step for ubuntu 16.
