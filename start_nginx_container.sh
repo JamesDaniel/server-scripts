@@ -11,7 +11,7 @@ docker cp docker-nginx:/etc/nginx/conf.d/default.conf ~/docker-nginx/default.con
 docker stop docker-nginx
 docker rm docker-nginx
 docker run --name docker-nginx -p 80:80 -v ~/docker-nginx/html:/usr/share/nginx/html -v ~/docker-nginx/default.conf:/etc/nginx/conf.d/default.conf -d nginx
-sudo apt-get install htpasswd
+sudo apt-get install apache2-utils
 echo 'Enter password for user in htpasswd:'
 sudo htpasswd -c ~/docker-nginx/.htpasswd user
 docker cp ~/docker-nginx/.htpasswd docker-nginx:/etc/nginx/conf.d/
@@ -39,6 +39,19 @@ server {
                 proxy_pass http://$ipaddress:8080;
                 auth_basic "Restricted";
                 auth_basic_user_file /etc/nginx/conf.d/.htpasswd;
+        }
+}
+server {
+        listen 80;
+        listen [::]:80;
+
+        server_name $ipaddress;
+
+        root /var/www/example.com;
+        index index.html;
+
+        location / {
+                proxy_pass http://$ipaddress:3001;
         }
 }
 
