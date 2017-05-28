@@ -1,5 +1,5 @@
 # Before running this script run install_docker.sh first.
-# Only run this script once. Unexpected problems might occur of run
+# Only run this script once with sudo. Unexpected problems might occur of run
 # more than once.
 
 sudo ufw enable
@@ -46,9 +46,4 @@ cat << End > /etc/docker/daemon.json
 
 End
 sudo chown root:root /etc/docker/daemon.json
-
-#Final steps
-sudo service docker stop
-sudo service docker start
-sudo reboot now
 
