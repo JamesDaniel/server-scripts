@@ -1,6 +1,6 @@
 # Server Scripts
 
-These scripts are to be used to automate the setup of an ubuntu 16 server on digitalocean.com.
+These scripts are to be used to automate the setup of an ubuntu 16 server on digitalocean.com. From start to finish it should take no longer than 15 minutes to run through this setup.
 
 ## Scripts
 
