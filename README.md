@@ -8,7 +8,7 @@ These scripts are to be used to automate the setup of an ubuntu 16 server on dig
    - replace_word_in_file.py
      - This file will replace all substrings in a file with another substring.
  - init_server_as_root.sh
-   - This file will setup a user on the server with sudo privileges. It will also setup the ssh key to be used by the user. The user name will be 'user'.
+   - This file will setup a user on the server with sudo privileges. It will also setup the ssh key to be used by the user. The user name will be 'user'. Droplet monitoring will also be setup.
  - init_server_as_user.sh
    - This file will setup git and install python.
  - install_docker.sh
