@@ -26,21 +26,21 @@ read ipaddress
 
 cat > ~/docker-nginx/default.conf <<- End
 
-server {
-        listen 80;
-        listen [::]:80;
+#server {
+#        listen 80;
+#        listen [::]:80;
 
-        server_name $ipaddress;
+#        server_name $ipaddress;
 
-        root /var/www/example.com;
-        index index.html;
+#        root /var/www/example.com;
+#        index index.html;
 
-        location / {
-                proxy_pass http://$ipaddress:8080;
-                auth_basic "Restricted";
-                auth_basic_user_file /etc/nginx/conf.d/.htpasswd;
-        }
-}
+#        location / {
+#                proxy_pass http://$ipaddress:8080;
+#                auth_basic "Restricted";
+#                auth_basic_user_file /etc/nginx/conf.d/.htpasswd;
+#        }
+#}
 server {
         listen 80;
         listen [::]:80;
@@ -60,3 +60,4 @@ End
 
 # Restart container with changes made to default.conf
 docker restart docker-nginx
+sudo ufw allow 3001
